@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praise Muleya - Help Me Study Overseas 2029</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --light: #f3f4f6;
+            --dark: #111827;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            margin-top: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: move 20s linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 3rem 5%;
+            background: var(--light);
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: translateY(0);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem 1rem 1rem;
+            color: white;
+        }
+
+        .story {
+            padding: 5rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .story-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--accent) 0%, var(--accent) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.2em;
+            background-position: 0 88%;
+            padding: 0 4px;
+            font-weight: 600;
+        }
+
+        .budget {
+            background: var(--primary);
+            color: white;
+            padding: 5rem 5%;
+        }
+
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .budget-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .budget-card:hover {
+            transform: scale(1.05);
+        }
+
+        .budget-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .budget-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .donate {
+            padding: 5rem 5%;
+            background: var(--light);
+        }
+
+        .donation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .payment-methods {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .payment-option {
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .payment-option:hover {
+            border-color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .payment-option.active {
+            border-color: var(--primary);
+            background: #eff6ff;
+        }
+
+        .payment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-header i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .payment-form {
+            display: none;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .payment-form.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 500px; }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: #d97706;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .quiz-option {
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--secondary);
+            background: #eff6ff;
+        }
+
+        .quiz-option.correct {
+            border-color: #10b981;
+            background: #d1fae5;
+        }
+
+        .comments {
+            padding: 5rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .comment-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .comments-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .comment {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--secondary);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .success-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+            animation: bounceIn 0.5s ease;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-item img {
+                height: 250px;
+            }
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -100px;
+            font-size: 2rem;
+            color: #ef4444;
+            animation: float 4s ease-in infinite;
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#story">My Story</a></li>
+            <li><a href="#budget">Budget</a></li>
+            <li><a href="#donate">Donate</a></li>
+            <li><a href="#comments">Comments</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Help Praise Muleya Study Overseas</h1>
+            <p>Support my dream to study Commerce in the UK in 2029 and become a Financial Manager or Administrator</p>
+            <a href="#donate" class="btn btn-accent">
+                <i class="fas fa-heart"></i> Donate Now
+            </a>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="gallery-item">
+            <img src="/mnt/kimi/upload/1000119687.jpg" alt="Praise Muleya">
+            <div class="gallery-overlay">
+                <p>Praise Muleya - Future Financial Manager</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="/mnt/kimi/upload/1000119697.jpg" alt="Praise giving thumbs up">
+            <div class="gallery-overlay">
+                <p>Ready to achieve my dreams</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="/mnt/kimi/upload/1000120316.jpg" alt="Praise with double thumbs up">
+            <div class="gallery-overlay">
+                <p>Your support means everything</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="/mnt/kimi/upload/1000120324.jpg" alt="Praise smiling">
+            <div class="gallery-overlay">
+                <p>Thank you for believing in me</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="story" id="story">
+        <h2 class="section-title">My Story</h2>
+        <div class="story-content">
+            <p>
+                Hello! My name is <span class="highlight">Praise Muleya</span>, and I am passionate about pursuing a career in <span class="highlight">Commerce</span>. My ultimate goal is to become a <span class="highlight">Financial Manager</span> or <span class="highlight">Administrator</span>, contributing to the global business community and making a positive impact in the financial sector.
+            </p>
+            <br>
+            <p>
+                In 2029, I have the incredible opportunity to study at a university in the <span class="highlight">United Kingdom</span>. This is a dream come true, but I need your help to make it a reality. Studying overseas requires significant financial resources, and I am reaching out to kind-hearted individuals who believe in the power of education and the potential of young dreams.
+            </p>
+            <br>
+            <p>
+                Your donation, no matter how small, will go a long way in helping me achieve my academic and professional goals. Together, we can turn this dream into reality. <strong>Thank you for your support!</strong>
+            </p>
+        </div>
+    </section>
+
+    <section class="budget" id="budget">
+        <h2 class="section-title" style="color: white;">How Your Donation Will Help</h2>
+        <div class="budget-grid">
+            <div class="budget-card">
+                <i class="fas fa-passport"></i>
+                <h3>Passport Application</h3>
+                <p>Obtaining my international passport for travel</p>
+            </div>
+            <div class="budget-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Scholarship Applications</h3>
+                <p>Fees for applying to various scholarship programs</p>
+            </div>
+            <div class="budget-card">
+                <i class="fas fa-plane"></i>
+                <h3>Flight Tickets</h3>
+                <p>Booking tickets to the UK for my studies</p>
+            </div>
+            <div class="budget-card">
+                <i class="fas fa-home"></i>
+                <h3>Accommodation</h3>
+                <p>Securing a place to stay upon arrival</p>
+            </div>
+            <div class="budget-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Food & Living</h3>
+                <p>Daily meals and living expenses</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="donate" id="donate">
+        <h2 class="section-title">Make a Donation</h2>
+        <div class="donation-container">
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                Choose your preferred payment method below. Every contribution brings me closer to my dream!
+            </p>
+
+            <div class="payment-methods">
+                <div class="payment-option" onclick="togglePayment('paypal')">
+                    <div class="payment-header">
+                        <i class="fab fa-paypal" style="color: #003087;"></i>
+                        <div>
+                            <h3>PayPal</h3>
+                            <p style="font-size: 0.9rem; color: #666;">praisefana61@gmail.com</p>
+                        </div>
+                    </div>
+                    <div id="paypal-form" class="payment-form">
+                        <p>Send your donation to: <strong>praisefana61@gmail.com</strong></p>
+                        <br>
+                        <button class="btn" onclick="showQuiz('paypal')">
+                            I've Sent the Donation
+                        </button>
+                    </div>
+                </div>
+
+                <div class="payment-option" onclick="togglePayment('bank')">
+                    <div class="payment-header">
+                        <i class="fas fa-university" style="color: #1e3a8a;"></i>
+                        <div>
+                            <h3>Bank Transfer (Capitec)</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Account: 1740324860</p>
+                        </div>
+                    </div>
+                    <div id="bank-form" class="payment-form">
+                        <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
+                            <p><strong>Bank:</strong> Capitec</p>
+                            <p><strong>Account Number:</strong> 1740324860</p>
+                            <p><strong>Reference:</strong> Praise Education 2029</p>
+                        </div>
+                        <p style="margin-bottom: 1rem;">After payment, send proof to: <strong>praisefana4@gmail.com</strong></p>
+                        <button class="btn" onclick="showQuiz('bank')">
+                            I've Made the Transfer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="payment-option" onclick="togglePayment('card')">
+                    <div class="payment-header">
+                        <i class="fas fa-credit-card" style="color: #ef4444;"></i>
+                        <div>
+                            <h3>Credit/Debit Card</h3>
+                            <p style="font-size: 0.9rem; color: #666;">MasterCard, Visa, etc.</p>
+                        </div>
+                    </div>
+                    <div id="card-form" class="payment-form">
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label>Expiry Date</label>
+                                <input type="text" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label>CVV</label>
+                                <input type="text" placeholder="123" maxlength="3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Cardholder Name</label>
+                            <input type="text" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Donation Amount ($)</label>
+                            <input type="number" placeholder="Enter amount" min="1">
+                        </div>
+                        <button class="btn btn-accent" onclick="showQuiz('card')">
+                            <i class="fas fa-lock"></i> Donate Securely
+                        </button>
+                    </div>
+                </div>
+
+                <div class="payment-option" onclick="togglePayment('newcard')">
+                    <div class="payment-header">
+                        <i class="fas fa-plus-circle" style="color: #10b981;"></i>
+                        <div>
+                            <h3>Add New Card</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Save a new payment method</p>
+                        </div>
+                    </div>
+                    <div id="newcard-form" class="payment-form">
+                        <div class="form-group">
+                            <label>Card Type</label>
+                            <select>
+                                <option>MasterCard</option>
+                                <option>Visa</option>
+                                <option>American Express</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" placeholder="Enter card number">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label>Expiry</label>
+                                <input type="text" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label>CVV</label>
+                                <input type="text" placeholder="CVV">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Billing Address</label>
+                            <input type="text" placeholder="Enter address">
+                        </div>
+                        <button class="btn" onclick="showQuiz('newcard')">
+                            Save Card & Donate
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="success-message" class="success-message">
+                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h3>Thank You for Your Donation!</h3>
+                <p>That small thing you give makes a big change. Your generosity brings me one step closer to my dream of studying in the UK!</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">A confirmation has been sent to your email.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="quiz-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeQuiz()">&times;</button>
+            <i class="fas fa-question-circle" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+            <h3>Quick Question!</h3>
+            <p style="margin: 1rem 0;">If you think which course am I going to do?</p>
+            <div class="quiz-options">
+                <div class="quiz-option" onclick="answerQuiz(this, false)">Medicine</div>
+                <div class="quiz-option" onclick="answerQuiz(this, false)">Engineering</div>
+                <div class="quiz-option" onclick="answerQuiz(this, true)">Commerce</div>
+                <div class="quiz-option" onclick="answerQuiz(this, false)">Law</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="comments" id="comments">
+        <h2 class="section-title">What People Think</h2>
+        
+        <div class="comment-form">
+            <h3 style="margin-bottom: 1rem;">Leave a Comment</h3>
+            <div class="form-group">
+                <input type="text" id="comment-name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <textarea id="comment-text" rows="4" placeholder="Share your thoughts about this donation campaign..." style="width: 100%; padding: 1rem; border: 2px solid #e5e7eb; border-radius: 10px; resize: vertical;"></textarea>
+            </div>
+            <button class="btn" onclick="addComment()">
+                <i class="fas fa-paper-plane"></i> Post Comment
+            </button>
+        </div>
+
+        <div class="comments-list" id="comments-list">
+            <div class="comment">
+                <div class="comment-header">
+                    <span class="comment-author">Sarah Johnson</span>
+                    <span>2 days ago</span>
+                </div>
+                <p>What an inspiring young man! I believe in your dream, Praise. The world needs more dedicated financial professionals. Happy to contribute!</p>
+            </div>
+            <div class="comment">
+                <div class="comment-header">
+                    <span class="comment-author">Michael Chen</span>
+                    <span>5 days ago</span>
+                </div>
+                <p>Education is the key to changing the world. Wishing you all the best in your studies in the UK. You've got this!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 Praise Muleya. All rights reserved.</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">Dream Big. Study Hard. Make a Difference.</p>
+    </footer>
+
+    <script>
+        function togglePayment(method) {
+            document.querySelectorAll('.payment-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            
+            document.getElementById(method + '-form').classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function showQuiz(method) {
+            document.getElementById('quiz-modal').classList.add('active');
+        }
+
+        function closeQuiz() {
+            document.getElementById('quiz-modal').classList.remove('active');
+        }
+
+        function answerQuiz(element, isCorrect) {
+            if (isCorrect) {
+                element.classList.add('correct');
+                setTimeout(() => {
+                    closeQuiz();
+                    document.getElementById('success-message').classList.add('active');
+                    createHearts();
+                    
+                    document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else {
+                element.style.borderColor = '#ef4444';
+                element.style.background = '#fee2e2';
+                setTimeout(() => {
+                    alert('Try again! Hint: It involves business and finance.');
+                    element.style.borderColor = '';
+                    element.style.background = '';
+                }, 500);
+            }
+        }
+
+        function addComment() {
+            const name = document.getElementById('comment-name').value;
+            const text = document.getElementById('comment-text').value;
+            
+            if (!name || !text) {
+                alert('Please fill in both fields');
+                return;
+            }
+            
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+            commentDiv.innerHTML = `
+                <div class="comment-header">
+                    <span class="comment-author">${name}</span>
+                    <span>Just now</span>
+                </div>
+                <p>${text}</p>
+            `;
+            
+            document.getElementById('comments-list').prepend(commentDiv);
+            
+            document.getElementById('comment-name').value = '';
+            document.getElementById('comment-text').value = '';
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 6000);
+                }, i * 300);
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('quiz-modal');
+            if (event.target == modal) {
+                closeQuiz();
+            }
+        }
+    </script>
+</body>
+</html>
